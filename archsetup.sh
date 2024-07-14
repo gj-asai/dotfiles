@@ -8,7 +8,7 @@ command_exists() {
 if ! command_exists paru; then
     sudo pacman --noconfirm -S base-devel git
     git clone https://aur.archlinux.org/paru.git
-    cd pau && makepkg --noconfirm -si
+    cd paru && makepkg --noconfirm -si
 fi
 
 # firewall
