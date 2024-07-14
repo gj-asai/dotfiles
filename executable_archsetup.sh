@@ -31,3 +31,10 @@ chezmoi init --apply gj-asai
 # timeshift
 sudo pacman --noconfirm -S timeshift
 # TODO configure timeshift
+
+# sddm theme
+paru --noconfirm -S sddm-theme-corners-git
+sudo mkdir /etc/sddm.conf.d/
+sudo cp $HOME/.config/sddm/sddm.conf /etc/sddm.conf.d/
+sudo cp $HOME/.config/wallpapers/wall_secondary.png /usr/share/sddm/themes/corners/backgrouds/
+sudo cp $HOME/.config/sddm/themes/corners/theme.conf /usr/share/sddm/themes/corners/theme.conf
