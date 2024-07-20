@@ -19,7 +19,9 @@ sudo ufw enable
 
 # zsh
 sudo pacman --noconfirm -S zsh
-chsh -s /usr/bin/zsh ${USER}
+if [[ "$SHELL" == "zsh" ]]; then
+    chsh -s /usr/bin/zsh ${USER}
+fi
 
 # additional packages
 sudo pacman --noconfirm -S neovim neofetch bat ripgrep grim zoxide fzf starship ttf-inconsolata-nerd chafa poppler
@@ -37,7 +39,7 @@ sudo pacman --noconfirm -S timeshift
 
 # sddm theme
 paru --noconfirm -S sddm-theme-corners-git
-sudo mkdir /etc/sddm.conf.d/
+sudo mkdir -p /etc/sddm.conf.d/
 sudo cp $HOME/.config/sddm/sddm.conf /etc/sddm.conf.d/
 sudo cp $HOME/.config/wallpapers/lock_mini.png /usr/share/sddm/themes/corners/backgrounds/
 sudo cp $HOME/.config/sddm/themes/corners/theme.conf /usr/share/sddm/themes/corners/theme.conf
