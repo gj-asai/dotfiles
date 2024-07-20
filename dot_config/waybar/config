@@ -1,0 +1,35 @@
+{
+    "layer": "top",
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    
+    "modules-right": [
+        "bluetooth",
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock", 
+        "custom/wlogout",
+    ],
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "all-outputs": true,
+        "format": "",
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+    },
+
+    "clock": {
+        "format": "{:%d/%m %H:%M}",
+    },
+
+    "custom/wlogout": {
+        "format": "a",
+        "on-click": "wlogout",
+    },
+}

@@ -1,0 +1,57 @@
+@define-color bg0 #282828;
+@define-color bg1 #32302f;
+@define-color fg0 #d4be98;
+@define-color fg1 #ddc7a1;
+@define-color blue #7daea3;
+@define-color yellow #d8a657;
+@define-color grey0 #7c6f64;
+
+* {
+    font-family: "Inconsolata Nerd Font";
+    font-weight: bold;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#workspaces {
+    background: @bg1;
+    opacity: 0.8;
+    margin: 4px 10px;
+    padding: 4px;
+    border-radius: 18px;
+}
+
+#workspaces button {
+    padding: 0;
+    margin: 0px 3px;
+    border-radius: 18px;
+    min-width: 30px;
+    background-color: @fg0;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.3;
+}
+
+#workspaces button.active {
+    padding: 0 15px;
+    background-color: @yellow;
+    transition: all 0.3s ease-in-out;
+    opacity: 1.0;
+}
+
+#workspaces button.hover {
+    background: @yellow;
+}
+
+.module {
+    background: @fg0;
+    color: @grey0;
+    margin: 8px 6px;
+    padding: 0px 15px;
+    border-radius: 10px;
+    border-width: 10px; 
+    font-size: 15px;
+}
