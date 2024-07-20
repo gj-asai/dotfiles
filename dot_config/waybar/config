@@ -20,16 +20,31 @@
         "format": "",
     },
 
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": "",
+        }
+    },
+
+    "network": {
+        "format-ethernet": "",
+        "format-wifi": " {essid}",
+    },
+
     "battery": {
         "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
     },
 
     "clock": {
-        "format": "{:%d/%m %H:%M}",
+        "format": "{:%d/%m %H:%M} ",
     },
 
     "custom/wlogout": {
-        "format": "a",
+        "format": "⏻",
         "on-click": "wlogout",
     },
 }
