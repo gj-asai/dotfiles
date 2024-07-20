@@ -24,6 +24,9 @@ chsh -s /usr/bin/zsh ${USER}
 # additional packages
 sudo pacman --noconfirm -S neovim neofetch bat ripgrep grim zoxide fzf starship ttf-inconsolata-nerd chafa poppler
 
+# hyprland
+sudo pacman --noconfirm -S waybar hyprpaper
+
 # dotfiles
 sudo pacman --noconfirm -S chezmoi
 chezmoi init --apply gj-asai
@@ -36,5 +39,5 @@ sudo pacman --noconfirm -S timeshift
 paru --noconfirm -S sddm-theme-corners-git
 sudo mkdir /etc/sddm.conf.d/
 sudo cp $HOME/.config/sddm/sddm.conf /etc/sddm.conf.d/
-sudo cp $HOME/.config/wallpapers/wall_secondary.png /usr/share/sddm/themes/corners/backgrouds/
+sudo cp $HOME/.config/wallpapers/lock_mini.png /usr/share/sddm/themes/corners/backgrounds/
 sudo cp $HOME/.config/sddm/themes/corners/theme.conf /usr/share/sddm/themes/corners/theme.conf
