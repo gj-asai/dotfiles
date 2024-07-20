@@ -19,7 +19,7 @@ sudo ufw enable
 
 # zsh
 sudo pacman --noconfirm -S zsh
-if [[ "$SHELL" == "zsh" ]]; then
+if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
     chsh -s /usr/bin/zsh ${USER}
 fi
 
