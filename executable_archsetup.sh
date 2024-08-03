@@ -24,7 +24,7 @@ if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
 fi
 
 # additional packages
-sudo pacman --noconfirm -S neovim neofetch bat ripgrep grim zoxide fzf starship ttf-inconsolata-nerd chafa poppler
+sudo pacman --noconfirm -S neovim neofetch bat ripgrep grim zoxide fzf starship ttf-inconsolata-nerd chafa poppler julia nodejs
 
 # hyprland
 sudo pacman --noconfirm -S waybar hyprpaper
