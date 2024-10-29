@@ -1,0 +1,59 @@
+{
+  "autosave": "on_focus_change",
+  "cursor_blink": false,
+  "ui_font_size": 16,
+  "buffer_font_size": 13,
+  "scrollbar": { "show": "never" },
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "always_treat_brackets_as_autoclosed": true,
+  "soft_wrap": "editor_width",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "dock": "right"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "on_yank",
+    "use_multiline_find": true
+  },
+  "project_panel": {
+    "button": false
+  },
+  "assistant": {
+    "enabled": false,
+    "button": false,
+    "version": "2"
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "line_indicator_format": "long",
+  "relative_line_numbers": true,
+  "restore_on_startup": "last_workspace"
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      "ctrl-b": "project_panel::ToggleFocus",
+      "alt-'": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-'": "workspace::ToggleRightDock",
+      "ctrl-n": "workspace::NewTerminal",
+      "ctrl-w": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-w": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "H": ["workspace::SendKeystrokes", "^"],
+      "L": ["workspace::SendKeystrokes", "$"]
+    }
+  }
+]
