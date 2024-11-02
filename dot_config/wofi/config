@@ -3,4 +3,3 @@ image_size=24
 no_actions=true
 key_down=Ctrl-n
 key_up=Ctrl-p
-sort_order=alphabetical
