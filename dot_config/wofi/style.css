@@ -38,3 +38,7 @@ window {
 #entry:selected {
     background-color: #3b4252;
 }
+
+#img {
+    background-color: transparent;
+}
