@@ -2,6 +2,7 @@
   "autosave": "on_focus_change",
   "cursor_blink": false,
   "ui_font_size": 16,
+  "buffer_font_family": "MesloLGL Nerd Font",
   "buffer_font_size": 13,
   "scrollbar": { "show": "never" },
   "tab_bar": {
@@ -18,7 +19,8 @@
     "metrics": false
   },
   "terminal": {
-    "dock": "right"
+    "dock": "right",
+    "font_family": "MesloLGL Nerd Font"
   },
   "theme": {
     "mode": "system",
