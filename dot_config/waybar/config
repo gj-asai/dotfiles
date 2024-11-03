@@ -2,23 +2,17 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "modules-left": ["hyprland/window"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["network", "pulseaudio", "bluetooth", "battery", "clock"],
+    "modules-right": ["network", "wireplumber",  "bluetooth", "battery", "clock"],
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a, %d %b  %H:%M}"
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{icon}    {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
@@ -38,21 +32,10 @@
     	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
         "on-click": "blueman-manager"
     },
-    "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
+    "wireplumber": {
+        "scroll-step": 5, 
         "format": "{icon}    {volume}%",
-        //"format-bluetooth": " {icon} {volume}% {format_source}",
-        //"format-bluetooth-muted": "  {icon} {format_source}",
-        "format-muted": "  {format_source}",
-        "format-icons": {
-//            "headphone": "",
-//            "hands-free": "",
-//            "headset": "",
-//            "phone": "",
-//            "portable": "",
-//            "car": "",
-            "default": ["", "", ""]
-        },
+        "format-icons": ["", "", ""],
         "on-click": "pavucontrol",
     },
 }

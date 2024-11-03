@@ -1,5 +1,4 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: "Noto Sans CJK KR Regular";
     font-size: 14px;
     min-height: 0;
@@ -8,23 +7,13 @@
 window#waybar {
     background: transparent;
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: 0.5s;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-#waybar.empty #window {
-    background-color: transparent;
 }
 
 #window {
+    font-weight: bold;
     margin: 2px;
     padding-left: 8px;
     padding-right: 8px;
-    font-weight: bold;
 }
 
 button {
@@ -55,9 +44,7 @@ button {
 #network,
 #pulseaudio,
 #wireplumber,
-#bluetooth,
-#custom-media,
-#idle_inhibitor {
+#bluetooth {
     margin: 2px;
     padding-left: 4px;
     padding-right: 4px;
@@ -70,47 +57,22 @@ button {
     font-weight: bold;
 }
 
-#battery icon {
-    color: red;
-}
-
 #battery.charging,
 #battery.plugged {
-    color: #ffffff;
-    background-color: #26a65b;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+    color: #a3be8c;
 }
 
 #battery.warning:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    color: #d08770;
+    font-weight: bold;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-label:focus {
-    background-color: #000000;
+    color: #bf616a;
+    font-weight: bold;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    color: #bf616a;
+    font-weight: bold;
 }
