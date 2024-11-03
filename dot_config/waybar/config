@@ -21,7 +21,7 @@
         "tooltip-format": " {ifname} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠ {ifname}",
-        "on-click": "wofi-wifi-menu"
+        "on-click": "nm-connection-editor"
     },
     "bluetooth": {
     	"format": "  {status}",
