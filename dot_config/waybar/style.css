@@ -62,6 +62,11 @@ button {
     color: #a3be8c;
 }
 
+#battery.warning,
+#battery.critical {
+    background-color: transparent;
+}
+
 #battery.warning:not(.charging) {
     color: #d08770;
     font-weight: bold;
