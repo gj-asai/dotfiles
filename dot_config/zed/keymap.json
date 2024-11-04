@@ -36,7 +36,16 @@
     "context": "Editor && vim_mode == normal",
     "bindings": {
       "H": ["workspace::SendKeystrokes", "^"],
-      "L": ["workspace::SendKeystrokes", "$"]
+      "L": ["workspace::SendKeystrokes", "$"],
+      "space d": ["workspace::SendKeystrokes", "ctrl-shift-k"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "J": ["workspace::SendKeystrokes", "alt-down"],
+      "K": ["workspace::SendKeystrokes", "alt-up"],
+      "space d": ["workspace::SendKeystrokes", "ctrl-shift-k"]
     }
   }
 ]
