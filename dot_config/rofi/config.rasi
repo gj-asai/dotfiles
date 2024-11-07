@@ -1,5 +1,6 @@
 configuration {
     font: "Noto Sans 12";
+    drun-display-format: "{icon} {name}";
     show-icons:     true;
 }
 
