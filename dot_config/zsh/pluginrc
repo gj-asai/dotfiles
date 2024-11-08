@@ -1,0 +1,14 @@
+plugin() {
+    github=$1
+    plugin=$2
+
+    PLUGIN_DIR=$ZDOTDIR/plugins
+    [ ! -d "${PLUGIN_DIR}" ] && mkdir "${PLUGIN_DIR}"
+    
+    if [ ! -d "${PLUGIN_DIR}/${plugin}" ]; then
+      echo "Installing ${plugin}..."
+      git clone "https://www.github.com/${github}/${plugin}" "${PLUGIN_DIR}/${plugin}"
+    fi
+    
+    source "${PLUGIN_DIR}/${plugin}/${plugin}.plugin.zsh"
+  }
