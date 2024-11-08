@@ -1,14 +1,14 @@
-plugin() {
-    github=$1
-    plugin=$2
+plug() {
+    name=$(echo $1 | cut -d "/" -f 2)
 
     PLUGIN_DIR=$ZDOTDIR/plugins
     [ ! -d "${PLUGIN_DIR}" ] && mkdir -p "${PLUGIN_DIR}"
     
-    if [ ! -d "${PLUGIN_DIR}/${plugin}" ]; then
-      echo "Installing ${plugin}..."
-      git clone "https://www.github.com/${github}/${plugin}" "${PLUGIN_DIR}/${plugin}"
-    fi
+    [ ! -d "${PLUGIN_DIR}/${name}" ] && git clone "https://www.github.com/$1" "${PLUGIN_DIR}/${name}"
     
-    source "${PLUGIN_DIR}/${plugin}/${plugin}.plugin.zsh"
+    if [ ! -z $2 ]; then
+        source "${PLUGIN_DIR}/${name}/$2.plugin.zsh"
+    else
+        source "${PLUGIN_DIR}/${name}/${name}.plugin.zsh"
+    fi
   }
