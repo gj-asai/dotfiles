@@ -5,6 +5,8 @@ return {
             open_mapping = [[<a-'>]],
             direction = "float",
             float_opts = {
+                width = 130,
+                height = 23,
                 border = "curved",
             },
         })
