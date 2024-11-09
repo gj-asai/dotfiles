@@ -4,6 +4,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
+        "lewis6991/hover.nvim",
     },
     config = function()
         require("mason").setup()
@@ -20,6 +21,15 @@ return {
                         capabilities = require("cmp_nvim_lsp").default_capabilities(),
                     })
                 end,
+            },
+        })
+        require("hover").setup({
+            init = function()
+                require("hover.providers.lsp")
+                require('hover.providers.diagnostic')
+            end,
+            preview_opts = {
+                border = 'single'
             },
         })
 
@@ -55,7 +65,7 @@ return {
             capabilities = require("cmp_nvim_lsp").default_capabilities(),
         })
 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+        vim.keymap.set("n", "K", require("hover").hover, {})
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 

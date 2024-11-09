@@ -11,22 +11,16 @@ return {
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 			vim.keymap.set("n", "<leader>gp", builtin.git_files, {})
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-		end,
-	},
-	{
-		"nvim-telescope/telescope-media-files.nvim",
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					media_files = {
-						file_types = { "png", "webp", "jpg", "jpeg" },
-						find_cmd = "rg",
-					},
-				},
-			})
-
-			require("telescope").load_extension("media_files")
-			vim.keymap.set("n", "<leader>fm", require("telescope").extensions.media_files.media_files, {})
+			vim.keymap.set("n", "<leader>nv", function ()
+			    builtin.find_files {
+                    cwd = "~/.config/nvim",
+                }
+			end, {})
+            vim.keymap.set("n", "<leader>gnv", function ()
+			    builtin.live_grep {
+                    cwd = "~/.config/nvim",
+                }
+			end, {})
 		end,
 	},
 	{

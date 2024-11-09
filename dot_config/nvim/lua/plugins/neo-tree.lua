@@ -11,10 +11,11 @@ return {
 			window = {
 				mappings = {
 					["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
+                    ["<c-b>"] = "close_window",
 				},
 			},
 		})
-		vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left<CR>")
+		vim.keymap.set("n", "<C-b>", ":Neotree filesystem toggle left<CR>")
 		vim.keymap.set("n", "<leader>gs", ":Neotree float git_status<CR>")
 	end,
 }
