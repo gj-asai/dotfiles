@@ -1,4 +1,4 @@
-vim.keymap.set("n", "H", "0")
+vim.keymap.set("n", "H", "_")
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("i", "jk", "<Esc>")
 

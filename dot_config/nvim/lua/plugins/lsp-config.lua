@@ -44,7 +44,7 @@ return {
                 "--sysimage-native-code=yes",
                 "--startup-file=no",
                 "--history-file=no",
-                vim.fn.stdpath("config") .. "/julia/julials.jl",
+                vim.fn.stdpath("config") .. "lua/plugins/lsp/julia/julials.jl",
                 vim.fn.expand("%:p:h"),
             },
             on_attach = function(client, bufnr)
