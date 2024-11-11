@@ -10,13 +10,8 @@ return {
         config = function()
             local actions = require("telescope.actions")
 
-            require("../telescope_image_preview")
-            local image_preview = telescope_image_preview()
-
             require("telescope").setup({
                 defaults = {
-                    file_previewer = image_preview.file_previewer,
-                    buffer_previewer_maker = image_preview.buffer_previewer_maker,
                     layout_config = {
                         width = 0.98,
                         height = 0.98,
