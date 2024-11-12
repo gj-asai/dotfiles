@@ -23,7 +23,6 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-completions"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-history-substring-search"
-plug "MichaelAquilina/zsh-auto-notify" auto-notify
 plug "Aloxaf/fzf-tab"
 
 AUTO_NOTIFY_IGNORE+=("chezmoi" "git")
