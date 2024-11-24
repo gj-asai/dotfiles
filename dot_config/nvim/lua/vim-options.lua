@@ -4,6 +4,7 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 vim.cmd("set scrolloff=8")
+vim.cmd("set ch=0")
 
 vim.cmd("set nu")
 vim.cmd("set relativenumber")
