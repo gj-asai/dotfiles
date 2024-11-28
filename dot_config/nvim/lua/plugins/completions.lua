@@ -3,20 +3,12 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-buffer",
             "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-            "rafamadriz/friendly-snippets",
         },
         config = function()
             local cmp = require("cmp")
-            require("luasnip.loaders.from_vscode").lazy_load()
-
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
             cmp.setup({
                 snippet = {
                     expand = function(args)
@@ -24,24 +16,67 @@ return {
                     end,
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<C-e>"] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
                     { name = "luasnip" },
-                    { name = "buffer" },
+                    { name = "nvim_lsp" },
+                }, {
                     { name = "path" },
+                    { name = "buffer" },
                 }),
             })
         end,
     },
     {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = true,
+        "L3MON4D3/LuaSnip",
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+        },
+        config = function()
+            local ls = require("luasnip")
+            require("luasnip.loaders.from_vscode").lazy_load()
+
+            vim.snippet.active = function(filter)
+                filter = filter or {}
+                filter.direction = filter.direction or 1
+
+                if filter.direction == 1 then
+                    return ls.expand_or_jumpable()
+                else
+                    return ls.jumpable(filter.direction)
+                end
+            end
+
+            vim.snippet.jump = function(direction)
+                if direction == 1 then
+                    if ls.expandable() then
+                        return ls.expand_or_jump()
+                    else
+                        return ls.jumpable(1) and ls.jump(1)
+                    end
+                else
+                    return ls.jumpable(-1) and ls.jump(-1)
+                end
+            end
+
+            vim.keymap.set({ "i", "s" }, "<c-k>", function()
+                return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
+            end, { silent = true })
+
+            vim.keymap.set({ "i", "s" }, "<c-j>", function()
+                return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
+            end, { silent = true })
+        end
     },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup()
+
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end
+    }
 }
