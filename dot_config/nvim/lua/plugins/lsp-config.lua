@@ -3,7 +3,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
+        "saghen/blink.cmp"
     },
     config = function()
         require("mason").setup()
@@ -16,9 +16,7 @@ return {
             },
             handlers = {
                 function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-                    })
+                    require("lspconfig")[server_name].setup({ })
                 end,
             },
         })
@@ -61,7 +59,6 @@ return {
                     },
                 },
             },
-            capabilities = require("cmp_nvim_lsp").default_capabilities(),
         })
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
