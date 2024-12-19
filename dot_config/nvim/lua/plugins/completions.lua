@@ -14,6 +14,7 @@ return {
             keymap = {
                 ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
                 ['<C-e>'] = { 'hide' },
+                ['<C-y>'] = { 'fallback' }, -- unbind
                 ['<Tab>'] = { 'select_and_accept', 'fallback' },
 
                 ['<C-p>'] = { 'select_prev', 'fallback' },

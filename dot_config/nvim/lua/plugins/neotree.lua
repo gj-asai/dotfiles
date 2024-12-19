@@ -35,9 +35,9 @@ return {
 
         vim.keymap.set("n", "<leader>e", function()
             require("neo-tree.command").execute({ toggle = true })
-        end)
+        end, { desc = "Toggle file tree" })
         vim.keymap.set("n", "<leader>gs", function()
             require("neo-tree.command").execute({ source = "git_status", position = "float" })
-        end)
+        end, { desc = "Show git status" })
     end,
 }

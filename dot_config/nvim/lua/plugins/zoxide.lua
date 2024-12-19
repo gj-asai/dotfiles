@@ -17,7 +17,7 @@ return {
 				},
 			})
 			require("telescope").load_extension("zoxide")
-			vim.keymap.set("n", "<leader>cd", ":Telescope zoxide list theme=dropdown previewer=false<CR>")
+			vim.keymap.set("n", "<leader>cd", ":Telescope zoxide list theme=dropdown previewer=false<CR>", { desc = "Change directory" })
 		end,
 	},
 }

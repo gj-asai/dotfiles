@@ -61,11 +61,11 @@ return {
             },
         })
 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-        vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-        vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+        vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, { desc = "Show references" })
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+        vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Code format" })
     end,
 }
