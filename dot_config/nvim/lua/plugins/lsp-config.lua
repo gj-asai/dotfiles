@@ -16,49 +16,28 @@ return {
             },
             handlers = {
                 function(server_name)
-                    require("lspconfig")[server_name].setup({ })
+                    require("lspconfig")[server_name].setup({
+                        capabilities = require("blink.cmp").get_lsp_capabilities()
+                    })
                 end,
             },
         })
 
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
         vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
         vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
         vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
         vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
-        -- to create the environment:
-        -- julia --project=@nvim-lspconfig julia-install-lsp.jl
+        -- to create the environment: lsp/config/julia/makefile
         require("lspconfig").julials.setup({
-            cmd = {
-                "julia",
-                "--project=@nvim-lspconfig",
-                "--sysimage="
-                .. vim.fn.system({ "julia", "--startup-file=no", "-q", "-e", "print(homedir())" })
-                .. "/.julia/environments/nvim-lspconfig/languageserver.so",
-                "--sysimage-native-code=yes",
-                "--startup-file=no",
-                "--history-file=no",
-                vim.fn.stdpath("config") .. "lua/plugins/lsp/julia/julials.jl",
-                vim.fn.expand("%:p:h"),
-            },
-            on_attach = function(client, bufnr)
-                vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+            on_new_config = function(new_config, _)
+                local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
+                if require("lspconfig").util.path.is_file(julia) then
+                    new_config.cmd[1] = julia
+                end
             end,
-            settings = {
-                julia = {
-                    symbolCacheDownload = true,
-                    lint = {
-                        missingrefs = "all",
-                        iter = true,
-                        lazy = true,
-                        modname = true,
-                    },
-                },
-            },
         })
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover" })
