@@ -1,5 +1,5 @@
-vim.keymap.set("n", "H", "_")
-vim.keymap.set("n", "L", "$")
+vim.keymap.set({"n", "v"}, "H", "_")
+vim.keymap.set({"n", "v"}, "L", "$")
 vim.keymap.set("i", "jk", "<Esc>")
 
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
@@ -15,8 +15,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", '"_dP')
-
-vim.keymap.set("n", "<leader>Y", '"+Y')
+vim.keymap.set("n", "<leader>Y", '"+yg_')
 vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
+vim.keymap.set({"n", "v"}, "<leader>p", '"+p')
+vim.keymap.set({"n", "v"}, "<leader>P", '"+P')
 vim.keymap.set({"n", "v"}, "<leader>d", '"_d')
+
+vim.keymap.set("n", "]p", 'o<Esc>p')
+vim.keymap.set("n", "[p", 'O<Esc>p')
+vim.keymap.set("n", "<leader>]p", 'o<Esc>"+p')
+vim.keymap.set("n", "<leader>[p", 'O<Esc>"+p')
