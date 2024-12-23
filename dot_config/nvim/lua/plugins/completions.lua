@@ -47,11 +47,11 @@ return {
                 jump = function(direction) require('luasnip').jump(direction) end,
             },
             sources = {
-                completion = {
-                    enabled_providers = { 'luasnip', 'lsp', 'path', 'buffer' },
-                },
+                default = { 'luasnip', 'lsp', 'path', 'buffer' },
+                cmdline = {},
             },
             completion = {
+                keyword = { range = 'full' },
                 accept = { auto_brackets = { enabled = true } },
                 menu = {
                     draw = {
