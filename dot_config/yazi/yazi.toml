@@ -1,0 +1,26 @@
+[manager]
+ratio          = [ 2, 4, 3 ]
+sort_by        = "natural"
+show_hidden    = false
+
+[opener]
+edit = [
+	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+]
+img = [
+    { run = 'viewnior "$1"', desc = "Viewnior", for = "linux" },
+]
+pdf = [
+    { run = 'papers "$1"', desc = "Papers", for = "linux" },
+]
+open = [
+	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+
+[open]
+rules = [
+	{ mime = "text/*", use = [ "edit" ] },
+    { mime = "image/*", use = [ "img" ] },
+    { mime = "application/pdf", use = [ "pdf" ] },
+    { mime = "*", use = [ "open" ] }
+]
