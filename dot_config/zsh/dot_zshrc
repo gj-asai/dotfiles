@@ -35,6 +35,9 @@ alias ls='ls --color'
 alias la='ls -a'
 alias cat='bat'
 
+autoload zcalc
+alias c='zcalc'
+
 # start programs
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
