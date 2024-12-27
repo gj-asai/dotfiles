@@ -38,6 +38,11 @@ return {
                     new_config.cmd[1] = julia
                 end
             end,
+            root_dir = function(fname)
+                local util = require("lspconfig.util")
+                return util.root_pattern "Project.toml" (fname) or util.find_git_ancestor(fname) or
+                    util.path.dirname(fname)
+            end,
         })
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover" })
