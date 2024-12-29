@@ -51,6 +51,11 @@ return {
                 default = { 'luasnip', 'lsp', 'path', 'buffer' },
                 cmdline = {},
             },
+            enabled = function()
+                return not vim.tbl_contains({ "tex" }, vim.bo.filetype)
+                    and vim.bo.buftype ~= "prompt"
+                    and vim.b.completion ~= false
+            end,
             completion = {
                 keyword = { range = 'full' },
                 accept = { auto_brackets = { enabled = true } },
