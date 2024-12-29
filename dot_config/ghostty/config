@@ -19,7 +19,6 @@ keybind = alt+minus=new_split:down
 keybind = alt+equal=new_split:right
 
 # keybind = alt+apostrophe=toggle_quick_terminal
-keybind = ctrl+shift+m=toggle_split_zoom
 
 keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+j=goto_split:bottom
