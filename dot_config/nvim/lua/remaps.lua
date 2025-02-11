@@ -1,6 +1,7 @@
 vim.keymap.set({"n", "v"}, "H", "_")
 vim.keymap.set({"n", "v"}, "L", "$")
 vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
