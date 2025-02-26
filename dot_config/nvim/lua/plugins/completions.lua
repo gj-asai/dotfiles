@@ -4,14 +4,12 @@ return {
         config = true,
     },
     {
-        'L3MON4D3/LuaSnip',
-        config = function()
-            require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets/" })
-        end
-    },
-    {
         'saghen/blink.cmp',
         version = 'v0.*',
+        dependencies = {
+            'L3MON4D3/LuaSnip',
+            'rafamadriz/friendly-snippets',
+        },
         opts = {
             keymap = {
                 ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -41,20 +39,11 @@ return {
             },
             snippets = { preset = 'luasnip' },
             sources = {
-                default = function()
-                    if vim.bo.filetype == 'tex' then
-                        return { 'snippets', 'lsp', 'path' }
-                    else
-                        return { 'snippets', 'lsp', 'path', 'buffer' }
-                    end
-                end,
-                cmdline = {},
+                default = { 'snippets', 'lsp', 'path', 'buffer' },
             },
             enabled = function()
-                -- return not vim.tbl_contains({ "tex" }, vim.bo.filetype)
-                --     and vim.bo.buftype ~= "prompt"
-                --     and vim.b.completion ~= false
-                return vim.bo.buftype ~= 'prompt'
+                return not vim.tbl_contains({ "tex" }, vim.bo.filetype)
+                    and vim.bo.buftype ~= "prompt"
                     and vim.b.completion ~= false
             end,
             completion = {
