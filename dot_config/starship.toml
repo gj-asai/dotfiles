@@ -1,5 +1,5 @@
 format = """
-[ 󰣇 ](bg:#a3aed2 fg:#090c0c)\
+$os\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -8,8 +8,19 @@ $git_status\
 [](fg:#394260 bg:#212736)\
 $julia\
 $python\
+$conda\
 [](fg:#212736)\
 \n$character"""
+
+[os]
+style = "bg:#a3aed2 fg:#090c0c"
+format = "[ $symbol ]($style)"
+disabled = false
+
+[os.symbols]
+Arch = "󰣇"
+Ubuntu = ""
+Windows = ""
 
 [directory]
 style = "fg:#e3e5e5 bg:#769ff0"
@@ -36,8 +47,7 @@ symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) (\($virtualenv\))](fg:#769ff0 bg:#212736)]($style)'
 
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+[conda]
+ignore_base = false
+style = "bg:#212736"
+format = '[[(\($symbol$environment\))](fg:#769ff0 bg:#212736)]($style)'
