@@ -29,6 +29,7 @@ return {
         vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
         vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
         vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+        vim.diagnostic.config({ virtual_text = true })
 
         -- to create the environment: lsp/config/julia/makefile
         require("lspconfig").julials.setup({
