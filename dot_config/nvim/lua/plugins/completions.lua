@@ -5,7 +5,7 @@ return {
     },
     {
         'saghen/blink.cmp',
-        version = 'v0.*',
+        version = 'v1.*',
         dependencies = {
             'L3MON4D3/LuaSnip',
             'rafamadriz/friendly-snippets',
@@ -47,6 +47,10 @@ return {
                     and vim.b.completion ~= false
             end,
             completion = {
+                documentation = {
+                    auto_show = true,
+                    window = { border = 'rounded' },
+                },
                 keyword = { range = 'full' },
                 accept = { auto_brackets = { enabled = true } },
                 menu = {
