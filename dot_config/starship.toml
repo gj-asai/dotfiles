@@ -9,6 +9,8 @@ $git_status\
 $julia\
 $python\
 $conda\
+$cmake\
+$cpp\
 [](fg:#212736)\
 \n$character"""
 
@@ -51,3 +53,16 @@ format = '[[ $symbol ($version) (\($virtualenv\))](fg:#769ff0 bg:#212736)]($styl
 ignore_base = false
 style = "bg:#212736"
 format = '[[(\($symbol$environment\))](fg:#769ff0 bg:#212736)]($style)'
+
+[cmake]
+symbol = "△"
+style = "bg:#212736"
+version_format = "v${major}.${minor}.${patch}"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[cpp]
+symbol = ""
+disabled = false
+commands = [['clang++','--version'], ['c++','--version'], ['g++','--version']]
+style = "bg:#212736"
+format = '[[ $symbol ($name ($version) )](fg:#769ff0 bg:#212736)]($style)'
