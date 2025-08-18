@@ -9,8 +9,8 @@ $git_status\
 $julia\
 $python\
 $conda\
-$cmake\
 $cpp\
+$cmake\
 [](fg:#212736)\
 \n$character"""
 
@@ -64,5 +64,6 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 symbol = ""
 disabled = false
 commands = [['clang++','--version'], ['c++','--version'], ['g++','--version']]
+detect_files = ['CMakeLists.txt']
 style = "bg:#212736"
-format = '[[ $symbol ($name ($version) )](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol ($name)\($version\)](fg:#769ff0 bg:#212736)]($style)'
