@@ -10,13 +10,11 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "pyright",
-                "ruff",
                 "julials",
             },
             handlers = {
                 function(server_name)
-                    require("lspconfig")[server_name].setup({})
+                    vim.lsp.config[server_name] = {}
                 end,
             },
         })
@@ -44,7 +42,7 @@ return {
         })
 
         -- to create the environment: lsp/config/julia/makefile
-        require("lspconfig").julials.setup({
+        vim.lsp.config["julials"] = {
             on_new_config = function(new_config, _)
                 local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
                 if require("lspconfig").util.path.is_file(julia) then
@@ -56,7 +54,7 @@ return {
                 return util.root_pattern "Project.toml" (fname) or util.find_git_ancestor(fname) or
                     util.path.dirname(fname)
             end,
-        })
+        }
 
         vim.keymap.set("n", "K", function()
             vim.lsp.buf.hover({ border = "rounded" })
