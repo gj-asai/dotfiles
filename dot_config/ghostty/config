@@ -1,4 +1,4 @@
-theme = nord
+theme = Nord
 window-decoration = false
 window-theme = ghostty
 gtk-tabs-location = bottom
