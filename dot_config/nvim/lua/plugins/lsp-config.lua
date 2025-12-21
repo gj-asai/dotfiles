@@ -14,16 +14,18 @@ return {
                 "cmake-language-server",
                 "cmakelang",
                 "lua_ls",
-                "julials",
                 "ruff",
                 "ty",
             },
             handlers = {
                 function(server_name)
-                    vim.lsp.config[server_name] = {}
+                    vim.lsp.enable(server_name)
                 end,
             },
         })
+
+        -- handle julia separately, version from mason does not work
+        vim.lsp.enable("julials")
 
         vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
         vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
@@ -46,21 +48,6 @@ return {
             },
             virtual_text = true
         })
-
-        -- to create the environment: lsp/config/julia/makefile
-        vim.lsp.config["julials"] = {
-            on_new_config = function(new_config, _)
-                local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia")
-                if require("lspconfig").util.path.is_file(julia) then
-                    new_config.cmd[1] = julia
-                end
-            end,
-            root_dir = function(fname)
-                local util = require("lspconfig.util")
-                return util.root_pattern "Project.toml" (fname) or util.find_git_ancestor(fname) or
-                    util.path.dirname(fname)
-            end,
-        }
 
         vim.keymap.set("n", "K", function()
             vim.lsp.buf.hover({ border = "rounded" })
