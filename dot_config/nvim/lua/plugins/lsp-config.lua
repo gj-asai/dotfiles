@@ -9,8 +9,14 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
+                "clang-format",
+                "clangd",
+                "cmake-language-server",
+                "cmakelang",
                 "lua_ls",
                 "julials",
+                "ruff",
+                "ty",
             },
             handlers = {
                 function(server_name)
