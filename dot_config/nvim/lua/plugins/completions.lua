@@ -4,6 +4,12 @@ return {
         config = true,
     },
     {
+        'L3MON4D3/LuaSnip',
+        config = function()
+            require("luasnip").filetype_extend("htmldjango", { "html" })
+        end,
+    },
+    {
         'saghen/blink.cmp',
         version = 'v1.*',
         dependencies = {

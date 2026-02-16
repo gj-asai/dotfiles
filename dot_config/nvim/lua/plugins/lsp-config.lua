@@ -9,10 +9,9 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "clang-format",
                 "clangd",
                 "cmake-language-server",
-                "cmakelang",
+                "django-template-lsp",
                 "lua_ls",
                 "ruff",
                 "ty",

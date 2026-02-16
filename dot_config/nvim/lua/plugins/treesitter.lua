@@ -9,7 +9,7 @@ return {
         config = function()
             local config = require("nvim-treesitter.configs")
             config.setup({
-                ensure_installed = { "lua", "julia", "python" },
+                ensure_installed = { "lua", "julia", "python", "htmldjango", "css" },
                 highlight = { enable = true },
                 indent = { enable = true },
                 incremental_selection = {
