@@ -11,7 +11,6 @@ return {
             ensure_installed = {
                 "clangd",
                 "cmake-language-server",
-                "django-template-lsp",
                 "lua_ls",
                 "ruff",
                 "ty",
