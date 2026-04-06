@@ -10,7 +10,6 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "clangd",
-                "cmake-language-server",
                 "lua_ls",
                 "ruff",
                 "ty",
