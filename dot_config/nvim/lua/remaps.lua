@@ -53,6 +53,15 @@ vim.keymap.set({ "x", "o" }, "r=", function()
     select("@assignment.rhs", "textobjects")
 end)
 vim.keymap.set({ "x", "o" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+vim.keymap.set({ "n", "x", "o" }, "]a", function()
+  require("nvim-treesitter-textobjects.move").goto_next_start("@parameter.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[a", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@parameter.outer", "textobjects")
+end)
+
+-- oil
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- gitsigns
 local gitsigns = require("gitsigns")
@@ -86,7 +95,6 @@ end, { silent = true, desc = "Jump to context" })
 
 -- telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>fe", ":Telescope file_browser<CR>", { desc = "File browser" })
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git status" })

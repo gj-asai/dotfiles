@@ -4,6 +4,8 @@ vim.pack.add({
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/gbprod/nord.nvim",
     "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/stevearc/oil.nvim",
+    "https://github.com/benomahony/oil-git.nvim",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/tpope/vim-surround",
@@ -15,7 +17,6 @@ vim.pack.add({
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/nvim-telescope/telescope.nvim",
     -- "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
-    "https://github.com/nvim-telescope/telescope-file-browser.nvim",
     "https://github.com/nvim-telescope/telescope-ui-select.nvim",
     "https://github.com/L3MON4D3/LuaSnip",
     "https://github.com/rafamadriz/friendly-snippets",
@@ -44,13 +45,15 @@ require("lualine").setup({
                     return ''
                 end
             end,
-            'filetype'
+            'filetype',
+            'lsp_status'
         },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
     },
 })
 
+require("oil").setup()
 require("todo-comments").setup()
 require("gitsigns").setup()
 require("harpoon"):setup()
@@ -87,46 +90,26 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-local actions = require("telescope.actions")
-local fb_actions = require("telescope._extensions.file_browser.actions")
 require("telescope").setup({
     defaults = {
         layout_config = {
             width = 0.98,
             height = 0.98,
-            horizontal = {
-                preview_width = 0.6,
-            },
+            horizontal = { preview_width = 0.6 },
         },
         mappings = {
             i = {
-                ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-j>"] = require("telescope.actions").move_selection_next,
+                ["<C-k>"] = require("telescope.actions").move_selection_previous,
             },
         },
     },
     extensions = {
         ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
-        ["file_browser"] = {
-            hijack_netrw = true,
-            path = "%:p:h",
-            display_stat = false,
-            grouped = true,
-            sorting_strategy = "ascending",
-            initial_mode = "normal",
-            mappings = {
-                ["n"] = {
-                    ["q"] = actions.close,
-                    ["<BS>"] = fb_actions.goto_parent_dir,
-                },
-
-            },
-        },
     },
 })
 -- require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension("file_browser")
 
 require("blink.cmp").setup({
     keymap = {
@@ -143,38 +126,21 @@ require("blink.cmp").setup({
 
         ['<C-j>'] = { 'snippet_forward', 'fallback' },
         ['<C-k>'] = { 'snippet_backward', 'fallback' },
-
-        ['<C-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
-        ['<C-2>'] = { function(cmp) cmp.accept({ index = 2 }) end },
-        ['<C-3>'] = { function(cmp) cmp.accept({ index = 3 }) end },
-        ['<C-4>'] = { function(cmp) cmp.accept({ index = 4 }) end },
-        ['<C-5>'] = { function(cmp) cmp.accept({ index = 5 }) end },
-        ['<C-6>'] = { function(cmp) cmp.accept({ index = 6 }) end },
-        ['<C-7>'] = { function(cmp) cmp.accept({ index = 7 }) end },
-        ['<C-8>'] = { function(cmp) cmp.accept({ index = 8 }) end },
-        ['<C-9>'] = { function(cmp) cmp.accept({ index = 9 }) end },
-        ['<C-0>'] = { function(cmp) cmp.accept({ index = 10 }) end },
     },
     snippets = { preset = 'luasnip' },
     sources = {
         default = { 'snippets', 'lsp', 'path', 'buffer' },
     },
-    enabled = function()
-        return not vim.tbl_contains({ "tex" }, vim.bo.filetype)
-            and vim.bo.buftype ~= "prompt"
-            and vim.b.completion ~= false
-    end,
     completion = {
         documentation = {
             auto_show = true,
             window = { border = 'rounded' },
         },
         keyword = { range = 'full' },
-        accept = { auto_brackets = { enabled = true } },
+        accept = { auto_brackets = { enabled = false } },
         menu = {
             draw = {
-                columns = { { 'item_idx' }, { 'label', 'label_description', gap = 1 }, { "kind" } },
-                components = { item_idx = { text = function(ctx) return tostring(ctx.idx) end, } },
+                columns = { { 'label', 'label_description', gap = 1 }, { "kind" } },
             }
         }
     },
