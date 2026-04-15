@@ -61,7 +61,8 @@ vim.keymap.set({ "n", "x", "o" }, "[a", function()
 end)
 
 -- oil
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open current directory" })
+vim.keymap.set("n", "<leader>re", "<CMD>Oil .<CR>", { desc = "Open current root" })
 
 -- gitsigns
 local gitsigns = require("gitsigns")
