@@ -17,8 +17,6 @@ vim.pack.add({
     { src = gh("nvim-treesitter/nvim-treesitter-textobjects"), version = "main" },
     gh("nvim-treesitter/nvim-treesitter-context"),
     gh("nvim-telescope/telescope.nvim"),
-    -- gh("nvim-telescope/telescope-fzf-native.nvim"),
-    gh("nvim-telescope/telescope-ui-select.nvim"),
     { src = gh("saghen/blink.cmp"), version = "v1" },
     gh("neovim/nvim-lspconfig"),
 })
@@ -103,12 +101,7 @@ require("telescope").setup({
             },
         },
     },
-    extensions = {
-        ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
-    },
 })
--- require("telescope").load_extension("fzf")
-require("telescope").load_extension("ui-select")
 
 require("blink.cmp").setup({
     keymap = {
